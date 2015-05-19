@@ -28,7 +28,7 @@ module Jammit
       options = packages.extract_options!
       options.merge!(:extname=>false)
       html_safe packages.map {|pack|
-        should_package? ? Jammit.asset_url(pack, :js) : Jammit.packager.individual_urls(pack.to_sym, :js)
+        should_package? ? Jammit.asset_url(pack, :js, nil, @mtime) : Jammit.packager.individual_urls(pack.to_sym, :js)
       }.flatten.map {|pack|
         "<script src=\"#{pack}\"></script>"
       }.join("\n")
@@ -58,7 +58,7 @@ module Jammit
 
     # HTML tags for the stylesheet packages.
     def packaged_stylesheets(packages, options)
-      tags_with_options(packages, options) {|p| Jammit.asset_url(p, :css) }
+      tags_with_options(packages, options) {|p| Jammit.asset_url(p, :css, nil, @mtime) }
     end
 
     # HTML tags for the 'datauri', and 'mhtml' versions of the packaged
