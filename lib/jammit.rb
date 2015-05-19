@@ -127,7 +127,7 @@ module Jammit
   # Generates the server-absolute URL to an asset package.
   def self.asset_url(package, extension, suffix=nil, mtime=nil)
     timestamp = mtime ? "?#{mtime.to_i}" : ''
-    timestamp = "?ENV['scm_rev']" if timestamp.empty? && ENV['scm_rev']
+    timestamp = "?#{ENV['scm_rev']}" if timestamp.empty? && ENV['scm_rev']
     "/#{package_path}/#{filename(package, extension, suffix)}#{timestamp}"
   end
 
