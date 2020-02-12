@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem "rake", "~>10.3"
-  gem "rails", "~>4.0"
+  gem "rake", "~>13.0.1"
+  gem "rails", "~>5.2.3"
   gem "cssmin", "~>1.0"
   gem "jsmin", "~>1.0.1"
   gem "yui-compressor", "~>0.12"
